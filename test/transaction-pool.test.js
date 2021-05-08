@@ -1,7 +1,7 @@
-const TransactionPool = require('../js/core/wallet/transaction-pool');
-const Transaction = require('../js/core/wallet/transaction');
-const Wallet = require('../js/core/wallet');
-const Blockchain = require('../js/core/blockchain');
+const TransactionPool = require('../backend/core/wallet/transaction-pool');
+const Transaction = require('../backend/core/wallet/transaction');
+const Wallet = require('../backend/core/wallet');
+const Blockchain = require('../backend/core/blockchain');
 
 describe('TransactionPool', () => {
   let transactionPool, transaction, senderWallet;
