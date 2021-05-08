@@ -1,0 +1,17 @@
+version: 2.1
+
+workflows:
+  test:
+    jobs:
+      - test
+
+jobs:
+  test:
+    branches:
+      only:
+        - develop
+    docker:
+      - image: cimg/node:16.1.0
+    steps:
+      - checkout
+      - run: npm run test
