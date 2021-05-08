@@ -7,9 +7,6 @@ workflows:
 
 jobs:
   test:
-    branches:
-      only:
-        - develop
     docker:
       - image: cimg/node:16.1.0
     steps:
