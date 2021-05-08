@@ -11,4 +11,9 @@ jobs:
       - image: cimg/node:16.1.0
     steps:
       - checkout
-      - run: npm run test
+      - run: 
+        name: Install Dependencies
+        command: npm install
+      - run:
+        name: Run Tests
+        command: npm run test
