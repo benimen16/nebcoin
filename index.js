@@ -1,10 +1,11 @@
 const express = require('express');
 const request = require('request');
+const path = require('path');
 const bodyParser = require('body-parser');
-const Blockchain = require('./js/core/blockchain');
+const Blockchain = require('./backend/core/blockchain');
 const PubSub = require('./app/pubsub');
-const TransactionPool = require('./js/core/wallet/transaction-pool');
-const Wallet = require('./js/core/wallet/index');
+const TransactionPool = require('./backend/core/wallet/transaction-pool');
+const Wallet = require('./backend/core/wallet/index');
 const TransactionMiner = require('./app/transaction-miner');
 
 const app = express();
@@ -19,6 +20,7 @@ const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 app.get('/api/blocks', (req, res) => {
   res.json(blockchain.chain);
@@ -71,6 +73,10 @@ app.get('/api/wallet-info', (req, res) => {
       address
     })
   });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist/index.html'));
 });
 
 const syncWithRootState = () => {
