@@ -103,6 +103,47 @@ const syncWithRootState = () => {
   );
 };
 
+//DELETE AFTERWARDS
+//////////////////////////////////////
+const walletOne = new Wallet();
+const walletTwo = new Wallet();
+
+const generateWalletTransaction = ({ wallet, recipient, amount }) => {
+  const transaction = wallet.createTransaction({
+    recipient, amount, chain: blockchain.chain
+  });
+
+  transactionPool.setTransaction(transaction);
+};
+
+const walletAction = () => generateWalletTransaction({
+  wallet, recipient: walletOne.publicKey, amount: 10
+});
+
+const walletOneAction = () => generateWalletTransaction({
+  wallet: walletOne, recipient: walletTwo.publicKey, amount: 69
+});
+
+const walletTwoAction = () => generateWalletTransaction({
+  wallet: walletTwo, recipient: wallet.publicKey, amount: 1
+});
+
+for(let i = 0; i < 10; i++) {
+  if(i % 3 === 0) {
+    walletAction();
+    walletOneAction();
+  } else if(i % 3 === 1) {
+    walletAction();
+    walletTwoAction();
+  } else {
+    walletOneAction();
+    walletTwoAction();
+  }
+
+  transactionMiner.mineTransactions();
+}
+//////////////////////////////////////
+
 let PEER_PORT;
 if(process.env.GENERATE_PEER_PORT === 'true') {
   PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000);
