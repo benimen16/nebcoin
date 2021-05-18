@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Blocks from './block/Blocks';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
   state = { walletInfo: {} };
@@ -15,12 +15,11 @@ class App extends Component {
 
     return(
       <div>
-        Welcome to the blockchain
+        <div>
+          <Link to="/">Home</Link> | <Link to="/blocks">Blocks</Link>
+        </div>
         <div>Address: { address }</div>
         <div>Balance: { balance }</div>
-        <div>
-          <Blocks />
-        </div>
       </div>
     );
   }
