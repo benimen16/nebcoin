@@ -12,12 +12,10 @@ class Blocks extends Component {
   }
 
   render() {
-    console.log(this.state);
-
     return(
       <div>
         <div>
-          <Link to="/">Home</Link> | <Link to="/blocks">Blocks</Link>
+          <Link to="/">Home</Link> | <Link to="/blocks">Blocks</Link> | <Link to="/conduct-transaction">Send/Recieve</Link>
         </div>
         <h3>Blocks</h3>
         {

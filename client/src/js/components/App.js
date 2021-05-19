@@ -16,7 +16,7 @@ class App extends Component {
     return(
       <div>
         <div>
-          <Link to="/">Home</Link> | <Link to="/blocks">Blocks</Link>
+          <Link to="/">Home</Link> | <Link to="/blocks">Blocks</Link> | <Link to="/conduct-transaction">Send/Recieve</Link>
         </div>
         <div>Address: { address }</div>
         <div>Balance: { balance }</div>
