@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import history from '../../history';
 
 class ConductTransaction extends Component {
   state = { recipient: '', amount: 0 };
@@ -16,13 +17,14 @@ class ConductTransaction extends Component {
   conductTransaction = () => {
     const { recipient, amount } = this.state;
 
-    fetch('http://localhost:8000/api/transact', {
+    fetch(`${document.location.origin}/api/transact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ recipient, amount })
     }).then(response => response.json())
       .then(json => {
         alert(json.message || json.type);
+        history.push('/transaction-pool');
       });
   }
 
@@ -30,7 +32,12 @@ class ConductTransaction extends Component {
     return(
       <div>
         <div>
-          <Link to="/">Home</Link> | <Link to="/blocks">Blocks</Link> | <Link to="/conduct-transaction">Send/Recieve</Link>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/blocks">Blocks</Link></li>
+            <li><Link to="/conduct-transaction">Send/Recieve</Link></li>
+            <li><Link to="/transaction-pool">Transaction Pool</Link></li>
+          </ul>
         </div>
         <h3>Create Transaction</h3>
         <FormGroup>

@@ -6,7 +6,7 @@ class Blocks extends Component {
   state = { blocks: [] };
 
   componentDidMount() {
-    fetch('http://localhost:8000/api/blocks')
+    fetch(`${document.location.origin}/api/blocks`)
       .then(response => response.json())
       .then(json => this.setState({ blocks: json }));
   }
@@ -15,7 +15,12 @@ class Blocks extends Component {
     return(
       <div>
         <div>
-          <Link to="/">Home</Link> | <Link to="/blocks">Blocks</Link> | <Link to="/conduct-transaction">Send/Recieve</Link>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/blocks">Blocks</Link></li>
+            <li><Link to="/conduct-transaction">Send/Recieve</Link></li>
+            <li><Link to="/transaction-pool">Transaction Pool</Link></li>
+          </ul>
         </div>
         <h3>Blocks</h3>
         {
