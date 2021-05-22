@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import history from '../../history';
-import Transaction from './transaction';
+import Transaction from './Transaction';
 
 const POOL_INTERVAL_MILLISECONDS = 10000;
 
