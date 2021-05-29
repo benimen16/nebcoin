@@ -1,8 +1,8 @@
-const Blockchain = require('../js/core/blockchain');
-const Wallet = require('../js/core/wallet');
-const Transaction = require('../js/core/wallet/transaction');
-const { verifySignature } = require('../js/utils');
-const { STARTING_BALANCE } = require('../js/utils/config');
+const Blockchain = require('../backend/core/blockchain');
+const Wallet = require('../backend/core/wallet');
+const Transaction = require('../backend/core/wallet/transaction');
+const { verifySignature } = require('../backend/utils');
+const { STARTING_BALANCE } = require('../backend/utils/config');
 
 describe('Wallet', () => {
   let wallet;

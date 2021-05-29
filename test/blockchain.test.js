@@ -1,8 +1,8 @@
-const Blockchain = require('../js/core/blockchain');
-const Block = require('../js/core/blockchain/block');
-const Wallet = require('../js/core/wallet');
-const Transaction = require('../js/core/wallet/transaction');
-const { cryptoHash } = require('../js/utils');
+const Blockchain = require('../backend/core/blockchain');
+const Block = require('../backend/core/blockchain/block');
+const Wallet = require('../backend/core/wallet');
+const Transaction = require('../backend/core/wallet/transaction');
+const { cryptoHash } = require('../backend/utils');
 
 describe('Blockchain', () => {
   let blockchain, newChain, originalChain, errorMock;

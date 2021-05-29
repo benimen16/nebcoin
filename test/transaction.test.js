@@ -1,7 +1,7 @@
-const Transaction = require('../js/core/wallet/transaction');
-const Wallet = require('../js/core/wallet');
-const { verifySignature } = require('../js/utils');
-const { REWARD_INPUT, MINING_REWARD } = require('../js/utils/config');
+const Transaction = require('../backend/core/wallet/transaction');
+const Wallet = require('../backend/core/wallet');
+const { verifySignature } = require('../backend/utils');
+const { REWARD_INPUT, MINING_REWARD } = require('../backend/utils/config');
 
 describe('Transaction', () => {
   let transaction, senderWallet, recipient, amount;
