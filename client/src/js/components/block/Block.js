@@ -38,7 +38,7 @@ class Block extends Component {
         </div>
       );
     }
-
+ 
     return(
       <div>
         <div>Data: { dataDisplay }</div>
